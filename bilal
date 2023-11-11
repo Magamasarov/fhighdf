@@ -1,0 +1,146 @@
+#1 
+class Student:
+    def __init__(self, name, age, average_grade):
+        self.name = name
+        self.age = age
+        self.average_grade = average_grade
+
+    def get_name(self):
+        return self.name
+
+    def set_name(self, name):
+        self.name = name
+
+    def get_age(self):
+        return self.age
+
+    def set_age(self, age):
+        self.age = age
+
+    def get_average_grade(self):
+        return self.average_grade
+
+    def set_average_grade(self, average_grade):
+        self.average_grade = average_grade
+        
+student1 = Student("Билал", 17, 4.5)
+
+print("Имя:", student1.get_name())
+print("Возраст:", student1.get_age())
+print("Средний балл:", student1.get_average_grade())
+
+student1.set_name("Билал")
+student1.set_average_grade(4.8)
+
+print("Новое имя:", student1.get_name())
+print("Новый средний балл студента:", student1.get_average_grade())
+
+
+
+#2
+class Rectangle:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+    def perimeter(self):
+        return 2 * (self.length + self.width)
+
+rectangle1 = Rectangle(3, 6)
+
+print("Площадь прямоугольника:", rectangle1.area())
+print("Периметр прямоугольника:", rectangle1.perimeter())
+
+
+
+#3
+class Car:
+    def __init__(self, brand, model, year, mileage):
+        self.brand = brand
+        self.model = model
+        self.year = year
+        self.mileage = mileage
+
+    def update_mileage(self, new_mileage):
+        self.mileage = new_mileage
+
+    def get_info(self):
+        return f"Марка: {self.brand}, Модель: {self.model}, Год выпуска: {self.year}, Пробег: {self.mileage} км"
+
+car1 = Car("Mersedes", "E63", 2010, 15000)
+
+print(car1.get_info())
+
+car1.update_mileage(17500)
+
+print(car1.get_info())
+
+
+
+#4
+class BankAccount:
+    def __init__(self, client_name, balance):
+        self.client_name = client_name
+        self.balance = balance
+        self.transaction_history = []
+
+    def deposit(self, amount):
+        self.balance += amount
+        self.transaction_history.append(f"Пополнение: +{amount}")
+
+    def withdraw(self, amount):
+        if self.balance >= amount:
+            self.balance -= amount
+            self.transaction_history.append(f"Снятие: -{amount}")
+        else:
+            print("Недостаточно средств на счете")
+
+    def display_balance(self):
+        return f"Клиент: {self.client_name}, Баланс: {self.balance}"
+
+    def display_transaction_history(self):
+        return self.transaction_history
+
+account1 = BankAccount("Билал", 14700)
+
+account1.deposit(500)
+
+account1.withdraw(200)
+
+print(account1.display_balance())
+print(account1.display_transaction_history())
+
+
+
+
+
+#5
+import math
+
+class Triangle:
+    def __init__(self, side1, side2, side3):
+        self.side1 = side1
+        self.side2 = side2
+        self.side3 = side3
+
+    def triangle_type(self):
+        if self.side1 == self.side2 == self.side3:
+            return "Равносторонний треугольник"
+        elif self.side1 == self.side2 or self.side1 == self.side3 or self.side2 == self.side3:
+            return "Равнобедренный треугольник"
+        else:
+            return "Разносторонний треугольник"
+
+    def area(self):
+        s = (self.side1 + self.side2 + self.side3) / 2
+        return math.sqrt(s * (s - self.side1) * (s - self.side2) * (s - self.side3))
+
+triangle1 = Triangle(3, 4, 5)
+
+print(triangle1.triangle_type())
+
+print("Площадь:", triangle1.area())
+
